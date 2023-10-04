@@ -1,15 +1,15 @@
 // Componente Sidebar
 
-import getAllCaracters from '../services/allCharacters.js'
+import getAllCaractersIcon from '../services/allCharacters.js'
 
 export async function renderSidebar() {
   
   return (
     `
       <sidebar id="sidebar">
-        <div id="container-side-bar">
+        <div class="container-sidebar" id="container-side-bar">
           <nav class="navigation-sidebar">
-            ${await getAllCaracters()}
+            ${await getAllCaractersIcon()}
           </nav>
         </div>
       </sidebar>

@@ -12,7 +12,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'VALORANT', sans-serif;
   color: var(--primary-grey);
 }
 
@@ -21,4 +20,13 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  width: 100vw;
+}
+
+.main-content{
+  display: flex;
+  height: calc(100vh - 90px);
+  position: relative;
+  background: var(--secondary-gradient);
+  box-sizing: border-box;
 }
