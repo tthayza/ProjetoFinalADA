@@ -19,6 +19,7 @@ export const renderHeader = () => {
                 <ul class="navigation-header">
                     <li></li>
                     <li><a href="#${navigationRoutes[0].path}">Sobre o Jogo</a></li>
+                    <li id="maps-li"></li>
                 </ul>
             </nav>
 
@@ -37,5 +38,19 @@ export const renderHeader = () => {
   a.addEventListener('click', () => {
     router()
   })
+  
+   //Parte dos mapas
+ const aMaps = document.createElement('a')
+ const liMaps = document.querySelector('#maps-li')
+ aMaps.text = 'Mapas'
+ const routeMaps = navigationRoutes[2];
+ aMaps.href = `#${routeMaps.path}`
+
+ liMaps.appendChild(aMaps)
+
+ aMaps.addEventListener('click', () => {
+   router()
+ })
+ //ate aqui é mapa Header.js
 }
 

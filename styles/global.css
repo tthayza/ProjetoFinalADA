@@ -25,7 +25,7 @@ body {
 
 .main-content{
   display: flex;
-  height: calc(100vh - 90px);
+  height: calc(100vh - 85px);
   position: relative;
   background: var(--secondary-gradient);
   box-sizing: border-box;
