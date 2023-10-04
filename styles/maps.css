@@ -1,0 +1,17 @@
+.maps{
+    height: 300px;
+    width: 100%;    
+}
+
+.maps-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100vw;
+    justify-content: center;
+    gap: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    height: calc(100vh - 85px);
+    overflow-y: scroll;
+}

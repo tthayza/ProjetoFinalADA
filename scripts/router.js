@@ -1,12 +1,12 @@
 // router.js
 import { getRouteHandler } from './routes.js';
-
 import { renderHeader } from '../components/Header.js';
 import { showLoadingScreen, hideLoadingScreen } from '../components/Loader.js';
 import { renderFooter } from '../components/Footer.js';
 import openSideBar from '../services/openSideBar.js';
 import createEventListener from '../services/createEventListener.js';
 import { renderAgent } from '../components/Agent.js';
+import { renderMaps } from '../pages/a-maps.js';
 
 export async function router () {
     const currentRoute = window.location.hash.slice(1) || '/';
@@ -26,7 +26,8 @@ export async function router () {
             openSideBar();
             createEventListener('data-agent');
             renderAgent();
-        }
+        } 
+        
         
 
         hideLoadingScreen();
