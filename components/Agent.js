@@ -1,46 +1,57 @@
-let result = fetch(
-  'https://valorant-api.com/v1/agents?isPlayableCharacter=true&language=pt-BR'
-)
-  .then(async (response) => {
-    const responseObject = await response.json()
-    console.log(responseObject.data)
-    return responseObject.data
-  })
-  .then((data) => data)
+export async function renderAgent(currenAgent) {
 
-function getCurrentAgent() {
-  const items = document.querySelectorAll('li')
-  items.forEach((item) =>
-    item.addEventListener('click', () => {
-      const currentAgent = result.filter((element) => element.id === item.id)
-      console.log(currentAgent)
-    })
-  )
+  let agent;
 
-  function createAgentComponent(agent) {
-    return `
-    <section class="agent-container" style="background: linear-gradient(140deg, #c7f458ff, #d56324ff, #3a2656ff, #3a7233ff)" />
+  if (currenAgent) {
+    agent = currenAgent
+    createAgentComponent(agent)
+  } else {
+    agent = fetch('../services/Gekko.json').then(r => r.json());
+    createAgentComponent(await agent)
+  }
+
+}
+
+function createAgentComponent(agent) {
+
+  const mainElement = document.querySelector(`#main`);
+
+  let mainAgent = document.querySelector(`.main-agent`);
+
+  if (!mainAgent) {
+    mainAgent = document.createElement('section');
+    mainAgent.classList.add('main-agent');
+  } else {
+
+  }
+
+  const agentElement = `
+    <section class="agent-container" style="background: linear-gradient(140deg, #${agent[0].backgroundGradientColors[0]}, #${agent[0].backgroundGradientColors[1]}, #${agent[0].backgroundGradientColors[2]}, #${agent[0].backgroundGradientColors[3]})" />
 
       <figure>
-        <img class="img-name-agent" width="600" src="https://media.valorant-api.com/agents/e370fa57-4757-3604-3648-499e1f642d3f/background.png" alt="">
-        <img class="image-agent"width=600 src="https://media.valorant-api.com/agents/e370fa57-4757-3604-3648-499e1f642d3f/fullportrait.png"/>
+        <img class="image-agent"src=${agent[0].fullPortrait}/>
       </figure>
       <div class="info-agent">
           <div class="item">
-            <span> Function </span>
-            <h2> Name </h2>
+            <span>${agent[0].role.displayName}</span>
+            <h2>${agent[0].displayName}</h2>
           </div>
           <article class="item">
-            <p> Descrição aqui Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pulvinar metus eu quam tincidunt, eget laoreet nulla bibendum. Nullam nec justo eu tellus congue finibus sed in ligula.  </p>
+            <p>${agent[0].description}</p>
           </article>
           <ul class="habilities-area item">
-            <li> <img width=45 src="https://media.valorant-api.com/agents/e370fa57-4757-3604-3648-499e1f642d3f/abilities/ability1/displayicon.png"> </li>
-            <li> <img width="45" src="https://media.valorant-api.com/agents/e370fa57-4757-3604-3648-499e1f642d3f/abilities/ability2/displayicon.png"></li>
-            <li> <img width="45" src="https://media.valorant-api.com/agents/e370fa57-4757-3604-3648-499e1f642d3f/abilities/grenade/displayicon.png"> </li>
-            <li> <img width="45" src="https://media.valorant-api.com/agents/e370fa57-4757-3604-3648-499e1f642d3f/abilities/ultimate/displayicon.png"> </li>
+            <li id="skill-1" data-abilitie> <img width="45" src=${agent[0].abilities[0].displayIcon}> </li>
+            <li id="skill-2" data-abilitie> <img width="45" src=${agent[0].abilities[1].displayIcon}></li>
+            <li id="skill-3" data-abilitie> <img width="45" src=${agent[0].abilities[2].displayIcon}> </li>
+            <li id="skill-4" data-abilitie> <img width="45" src=${agent[0].abilities[3].displayIcon}> </li>
           </ul>
           <article class="item">
-                    <p id="description-hability" > Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pulvinar metus eu quam tincidunt, eget laoreet nulla bibendum. Nullam nec justo eu tellus congue finibus sed in ligula.  </p>
+                    <p id="description-hability" >${agent[0].abilities[0].description}</p>
+          </article>
+          <article class="item">
+                    <p id="description-role" >
+                      ${agent[0].role.description}
+                    </p>
           </article>
 
 
@@ -48,5 +59,37 @@ function getCurrentAgent() {
 
     </section>
     `
+
+  mainAgent.innerHTML = agentElement;
+
+  mainAgent.querySelectorAll('[data-abilitie]').forEach(element => {
+    element.addEventListener('click', () => {
+      changeSkillDesc(element.id, agent)
+    })
+  })
+  mainElement.appendChild(mainAgent);
+
+  const imagemDefundo = mainAgent.querySelector('.image-agent');
+
+  imagemDefundo.style.backgroundImage = `url(${agent[0].background})`;
+}
+
+
+function changeSkillDesc(id, agent) {
+  const displaySkill = document.querySelector('#description-hability');
+  
+  switch (id) {
+    case "skill-2":
+      displaySkill.textContent = agent[0].abilities[1].description;
+      break;
+    case "skill-3":
+      displaySkill.textContent = agent[0].abilities[2].description;
+      break;
+    case "skill-4":
+      displaySkill.textContent = agent[0].abilities[3].description;
+      break;
+    default:
+      displaySkill.textContent = agent[0].abilities[0].description;
+      break;
   }
 }

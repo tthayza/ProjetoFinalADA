@@ -1,14 +1,5 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
-main{
-    /* overflow: hidden; */
-    padding-bottom: 8%;
-    background: var(--secondary-gradient);
-}
+
 
 .wrapper{
     display: flex;

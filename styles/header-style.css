@@ -9,6 +9,7 @@ header {
     ),
     linear-gradient(127deg, var(--secondary-red), rgba(0, 255, 0, 0) 70.71%),
     linear-gradient(336deg, var(--tertiary-red), rgba(0, 0, 255, 0) 70.71%);
+  font-family: 'VALORANT', sans-serif;
 }
 
 header div {

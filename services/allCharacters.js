@@ -1,15 +1,11 @@
+import memory from "./memory.js";
 
 
-export default async function getAllCaracters(){
-    let result = ''
+export default async function getAllCaractersIcon(){
+    
     try{
         
-        return fetch('https://valorant-api.com/v1/agents?isPlayableCharacter=true&language=pt-BR')
-        .then( async (response) => {
-            const responseObject = await response.json()
-            console.log(responseObject.data);
-            return responseObject.data
-        })
+        return getAllCaracters()
         .then( data => createListElement(data))
         
 
@@ -19,11 +15,27 @@ export default async function getAllCaracters(){
 
 }
 
+export async function getAllCaracters(){
+    try{
+        
+        return fetch('https://valorant-api.com/v1/agents?isPlayableCharacter=true&language=pt-BR')
+        .then( async (response) => {
+            const responseObject = await response.json()
+            memory.save(responseObject.data);
+            return responseObject.data
+        })
+
+    }catch{
+        throw new Error('API error');
+    }
+}
+
 function createListElement (listOfCharacters){
     let result = ''
     listOfCharacters.forEach(element => {
-        result += `<li><a><img class="character-icon" src=${element.displayIcon}></a></li>`
+        result += `<li id="${element.displayName}" data-agent><a><img class="character-icon" src=${element.displayIcon}></a></li>`
     });
     
     return result
 }
+

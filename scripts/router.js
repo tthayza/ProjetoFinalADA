@@ -5,6 +5,8 @@ import { renderHeader } from '../components/Header.js';
 import { showLoadingScreen, hideLoadingScreen } from '../components/Loader.js';
 import { renderFooter } from '../components/Footer.js';
 import openSideBar from '../services/openSideBar.js';
+import createEventListener from '../services/createEventListener.js';
+import { renderAgent } from '../components/Agent.js';
 
 export async function router () {
     const currentRoute = window.location.hash.slice(1) || '/';
@@ -20,8 +22,11 @@ export async function router () {
 
         document.querySelector('#main').innerHTML = await routeHandler()
         
-        if(currentRoute == `/Characters`) openSideBar()
-        
+        if(currentRoute == `/Characters`) {
+            openSideBar();
+            createEventListener('data-agent');
+            renderAgent();
+        }
         
 
         hideLoadingScreen();

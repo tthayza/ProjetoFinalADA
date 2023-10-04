@@ -6,5 +6,5 @@ export default function openSideBar () {
 
         sideBar.classList.add('slideIn');
         
-    }, 1000)
+    }, 500)
 }
