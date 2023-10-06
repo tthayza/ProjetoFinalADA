@@ -33,14 +33,18 @@ header h1 {
   font-size: 20px;
 }
 
-a:link{
+a:link {
   text-decoration: none;
+}
+
+#navigation ul li {
+  transition: 0.5s ease;
 }
 
 #navigation ul li:hover {
   cursor: pointer;
   color: gainsboro;
-  transform: scalex(1.05);
+  transition: 0.5s ease;
+  scale: 1.06;
+  /* opacity: 0.6; */
 }
-
-

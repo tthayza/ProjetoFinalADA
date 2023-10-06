@@ -1,28 +1,24 @@
 export async function renderAgent(currenAgent) {
-
-  let agent;
+  let agent
 
   if (currenAgent) {
     agent = currenAgent
     createAgentComponent(agent)
   } else {
-    agent = fetch('../services/Gekko.json').then(r => r.json());
+    agent = fetch('../services/Gekko.json').then((r) => r.json())
     createAgentComponent(await agent)
   }
-
 }
 
 function createAgentComponent(agent) {
+  const mainElement = document.querySelector(`#main`)
 
-  const mainElement = document.querySelector(`#main`);
-
-  let mainAgent = document.querySelector(`.main-agent`);
+  let mainAgent = document.querySelector(`.main-agent`)
 
   if (!mainAgent) {
-    mainAgent = document.createElement('section');
-    mainAgent.classList.add('main-agent');
+    mainAgent = document.createElement('section')
+    mainAgent.classList.add('main-agent')
   } else {
-
   }
 
   const agentElement = `
@@ -60,36 +56,35 @@ function createAgentComponent(agent) {
     </section>
     `
 
-  mainAgent.innerHTML = agentElement;
+  mainAgent.innerHTML = agentElement
 
-  mainAgent.querySelectorAll('[data-abilitie]').forEach(element => {
+  mainAgent.querySelectorAll('[data-abilitie]').forEach((element) => {
     element.addEventListener('click', () => {
       changeSkillDesc(element.id, agent)
     })
   })
-  mainElement.appendChild(mainAgent);
+  mainElement.appendChild(mainAgent)
 
-  const imagemDefundo = mainAgent.querySelector('.image-agent');
+  const imagemDefundo = mainAgent.querySelector('.image-agent')
 
-  imagemDefundo.style.backgroundImage = `url(${agent[0].background})`;
+  imagemDefundo.style.backgroundImage = `url(${agent[0].background})`
 }
 
-
 function changeSkillDesc(id, agent) {
-  const displaySkill = document.querySelector('#description-hability');
-  
+  const displaySkill = document.querySelector('#description-hability')
+
   switch (id) {
-    case "skill-2":
-      displaySkill.textContent = agent[0].abilities[1].description;
-      break;
-    case "skill-3":
-      displaySkill.textContent = agent[0].abilities[2].description;
-      break;
-    case "skill-4":
-      displaySkill.textContent = agent[0].abilities[3].description;
-      break;
+    case 'skill-2':
+      displaySkill.textContent = agent[0].abilities[1].description
+      break
+    case 'skill-3':
+      displaySkill.textContent = agent[0].abilities[2].description
+      break
+    case 'skill-4':
+      displaySkill.textContent = agent[0].abilities[3].description
+      break
     default:
-      displaySkill.textContent = agent[0].abilities[0].description;
-      break;
+      displaySkill.textContent = agent[0].abilities[0].description
+      break
   }
 }

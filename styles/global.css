@@ -21,9 +21,28 @@ body {
   flex-direction: column;
   justify-content: space-between;
   width: 100vw;
+  overflow-x: hidden;
+}
+body::-webkit-scrollbar {
+  width: 13px;
+  margin: 12px 0;
 }
 
-.main-content{
+body::-webkit-scrollbar-track {
+  background: linear-gradient(
+    0deg,
+    var(--primary-red) 0%,
+    var(--tertiary-red) 100%
+  );
+  margin: 2px 0;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--primary-grey);
+  border-radius: 90px;
+}
+
+.main-content {
   display: flex;
   height: calc(100vh - 85px);
   position: relative;
