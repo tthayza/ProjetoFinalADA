@@ -28,8 +28,6 @@ export async function router () {
             renderAgent();
         } 
         
-        
-
         hideLoadingScreen();
 
     }, 1000); 

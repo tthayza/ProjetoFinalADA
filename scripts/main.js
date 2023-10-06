@@ -1,4 +1,4 @@
-
+import getAllMaps from '../services/allMaps.js';
 import { initNavigation } from './navigation.js';
 
 function handleHashChange() {
@@ -8,3 +8,4 @@ function handleHashChange() {
 
 window.addEventListener('hashchange', handleHashChange);
 window.addEventListener('load', handleHashChange);
+

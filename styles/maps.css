@@ -1,6 +1,30 @@
+figure{
+    display: flex;
+    flex-direction: column;
+    text-align: center;    
+}
+
 .maps{
     height: 300px;
-    width: 100%;    
+    width: 100%;   
+    box-shadow: 5px 5px 20px 0px rgba(0, 0, 0, 0.753);     
+}
+
+.maps:hover{   
+    cursor: pointer;
+    transition: 700ms;
+    filter: grayscale(100%);
+    scale: 1.1;
+}
+
+.map-name{
+    position: relative;
+    top: 18px;   
+    font-size: 36px; 
+    font-weight: 600;
+    letter-spacing: 10px;
+    color: #bd3944;
+    text-align: center;        
 }
 
 .maps-container{
@@ -9,9 +33,9 @@
     flex-wrap: wrap;
     width: 100vw;
     justify-content: center;
-    gap: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    gap: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     height: calc(100vh - 85px);
     overflow-y: scroll;
 }
