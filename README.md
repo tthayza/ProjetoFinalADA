@@ -1,40 +1,78 @@
-# Projeto SPA em JavaScript Vanilla
+# <h1 align='center'>VALORANT INFO </h1>
 
-![Spa](/assets/code-pin.gif)
+<p align='center'>
+   <img width='180'src="./assets/logo-valorant.png"/>
+</p>
 
-## Descrição do Projeto
-Neste projeto emocionante, você terá a oportunidade de aprofundar seus conhecimentos em JavaScript Vanilla e desenvolver um SPA (Single Page Application) do zero. O projeto base fornecido inclui uma estrutura básica de HTML e um arquivo de estilo `styles.css`. Sua missão é explorar os componentes, dar asas à sua criatividade na estilização e implementar funcionalidades adicionais que farão deste SPA uma obra de arte interativa.
+## Descrição 📚
 
-## Objetivos do Projeto
-Os objetivos deste projeto são claros:
+Este é o projeto final do módulo de Front End Dinâmico do programa Santander Coders. O projeto consiste em uma aplicação web que consome a API do jogo Valorant para exibir informações sobre o jogo, seus personagens e mapas. Utilizamos HTML, CSS e Vanilla JavaScript para criar a interface e a interatividade da aplicação. Além disso, aplicamos animações CSS, conceitos de rotas e efeitos de hover para melhorar a experiência do usuário. O versionamento do projeto foi realizado usando Git e Github, permitindo que cada membro do grupo contribuísse e acompanhasse as alterações.
+Acesse o projeto clicando [aqui](https://projeto-final-ada.vercel.app/).
 
-1. **Criar Componentes Maravilhosos**: Desenvolver os seguintes componentes para a aplicação, usando a abordagem `createElement`:
-   - Sidebar 📜
-   - Footer 🦶
-   - Inputs e Botões 📝
-   - Hamburger Menu 🍔 (menu responsivo)
+## Tecnologias Utilizadas 🚀
 
-2. **Estilização Criativa**: Deixe sua imaginação correr solta! Adicione estilos personalizados para tornar o SPA visualmente deslumbrante. Use cores, fontes e elementos de design que você achar adequados para o tema de um spa relaxante. A abordagem `createStyle` é altamente recomendada.
+- HTML
+- CSS
+- Vanilla JavaScript
+- Fetch API
+- CSS Animation
+- Git e Github
 
-3. **Implementar Navegação Suave**: Implemente rotas para diferentes seções da aplicação usando o `localStorage` para armazenar informações relevantes, de forma que os usuários possam navegar de forma intuitiva.
+## Funcionalidades Principais 🌟
 
-## Material de Apoio
+- Consumo da API do jogo Valorant
+- Interface interativa para exibir informações sobre o jogo
+- Animações CSS para melhorar a experiência do usuário
+- Conceitos de rotas para navegação entre as páginas
+- Efeitos de hover em elementos interativos
 
-Para ajudar no desenvolvimento, você pode consultar o [Material de Apoio](https://www.notion.so/freedomsoftwaredesign/Material-de-Apoio-ac04c5ece4514de88f7e390649c9665a), que contém informações valiosas para o sucesso do seu projeto.
+## Instalação 🔧
 
+Para rodar este projeto localmente, siga estas etapas:
 
-## Como Rodar o Projeto
+1. Clone este repositório:
 
-Para executar este projeto localmente, siga este passo a passo:
-
-**Passo 1: Instale o Node.js**
-Certifique-se de ter o Node.js instalado no seu sistema. Você pode baixá-lo em [nodejs.org](https://nodejs.org/).
-
-**Passo 2: Clone o Repositório**
-Clone este repositório para o seu computador usando o seguinte comando no terminal:
-
+```bash
+git clone https://github.com/seu-usuario/nome-do-repositorio.git
 ```
+
+2. Navegue até o diretório:
+
+```bash
+cd ProjetoFinalADA
+```
+
+3. Instale as dependências usando npm:
+
+```bash
 npm install
+```
+
+## Execução ▶
+
+Para iniciar o projeto, execute o seguinte comando:
+
+```bash
 npm run start
 ```
-salve rapaziada
+
+## Pré-Visualização
+
+<div align='center' >
+   <h3> Tela Inicial - Sobre o jogo </h3>
+   <img  width='600' src='./assets/v-1.png'>
+   <h3> Tela de Agentes </h3>
+   <img width='600'  src='./assets/v-2.png'>
+   <h3> Tela de Mapas do jogo </h3>
+   <img  width='600' src='./assets/v-3.png'>
+   <h3> Rodapé Opcional </h3>
+   <img  width='600' src='./assets/v-4.png'>
+
+</div>
+
+## Autores 👩🏻‍💻👨🏻‍💻
+
+- [Jamyle Layla](https://github.com/JamyleTeles)
+- [Juan Salles](https://github.com/JuanSalles)
+- [Matheus Holanda](https://github.com/MMatheus-Holanda)
+- [Thayza Oliveira](https://github.com/tthayza)
