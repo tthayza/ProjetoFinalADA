@@ -33,7 +33,7 @@ Para rodar este projeto localmente, siga estas etapas:
 1. Clone este repositório:
 
 ```bash
-git clone https://github.com/seu-usuario/nome-do-repositorio.git
+git clone https://github.com/tthayza/ProjetoFinalADA.git
 ```
 
 2. Navegue até o diretório:
